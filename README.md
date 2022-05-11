@@ -20,9 +20,8 @@ A module to allow calculation using complex numbers in Python.  Note: this was m
 
 - Polar Coordinate Conversion
 
-### Coming Soon:
-
 - Exponentiation
+  - For now, exponentiation is only capable of raising to integer powers greater or equal to zero
 
 ### Never Coming:
 
