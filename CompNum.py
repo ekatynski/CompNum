@@ -58,8 +58,19 @@ class CompNum:
         # Calculate quotient
             return CompNum(num.real / den, num.imag / den)
 
+    # Limited in scope to only positive integer exponentiation for now
     def __pow__(self, arg):
-        arg = arg_check(arg)
+        if type(arg) != int:
+            raise ValueError("You have passed an invalid argument; positive integers only please")
+        elif arg < 0:
+            raise ValueError("Positive integer exponent arguments only, please.")
+        else:
+            if arg == 0:
+                return 1
+            else:
+                for i in range(arg):
+                    self = self * self
+        return self
 
     def __eq__(self, arg):
         arg = arg_check(arg)
