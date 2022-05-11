@@ -58,12 +58,6 @@ class CompNum:
         # Calculate quotient
             return CompNum(num.real / den, num.imag / den)
 
-    def __floordiv__(self, arg):
-        arg = arg_check(arg)
-
-    def __mod__(self, arg):
-        arg = arg_check(arg)
-
     def __pow__(self, arg):
         arg = arg_check(arg)
 
