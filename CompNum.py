@@ -18,18 +18,27 @@ class CompNum:
         if type(arg) != CompNum:
             arg = CompNum(arg)
         return CompNum(self.real + arg.real, self.imag + arg.imag)
-        
 
     def __sub__(self, arg):
         if type(arg) != CompNum:
             arg = CompNum(arg)
         return CompNum(self.real - arg.real, self.imag - arg.imag)
 
-    def __mul__():
-        pass
+    def __mul__(self, arg):
+        if type(arg) != CompNum:
+            arg = CompNum(arg)
+        # Determine product by good old FOIL
+        return CompNum(self.real * arg.real - self.imag * arg.imag, self.real * arg.imag + self.imag * arg.real)
 
-    def __truediv():
-        pass
-
+    def __truediv__(self, arg):
+        if type(arg) != CompNum:
+            arg = CompNum(arg)
+        # Determine the conjugate of the divisor
+        conjugate = CompNum(arg.real, -1 * arg.imag)
+        # Calculate numerator and denominator multiplied by conjugate
+        num = self * conjugate
+        den = (arg * conjugate).real
+        # Calculate quotient
+        return CompNum(num.real / den, num.imag / den)
 
         
