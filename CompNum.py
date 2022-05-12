@@ -16,8 +16,8 @@ class CompNum:
         if (type(real) == int or type(real) == float) and (type(imag) == int or type(imag) == float):
             # Convert input arguments from polar to cartesian
             if polar:
-                self.real = real * math.sin(imag)
-                self.imag = real * math.cos(imag)
+                self.real = real * math.cos(imag)
+                self.imag = real * math.sin(imag)
             else:
                 self.real = float(real)
                 self.imag = float(imag)
