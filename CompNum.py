@@ -30,7 +30,7 @@ class CompNum:
             operation = '-'
         else:
             operation = '+'
-        return "{0} {1} {2}i".format(round(self.real, 2), operation, round(abs(self.imag), 2))
+        return "({0} {1} {2}i)".format(round(self.real, 2), operation, round(abs(self.imag), 2))
 
     def __add__(self, arg):
         arg = arg_check(arg)
@@ -60,16 +60,17 @@ class CompNum:
 
     # Limited in scope to only positive integer exponentiation for now
     def __pow__(self, arg):
+        self_original = self
         if type(arg) != int:
-            raise ValueError("You have passed an invalid argument; positive integers only please")
+            raise ValueError("You have passed an invalid argument; positive integers only, please.")
         elif arg < 0:
             raise ValueError("Positive integer exponent arguments only, please.")
         else:
             if arg == 0:
                 return 1
             else:
-                for i in range(arg):
-                    self = self * self
+                for i in range(arg - 1):
+                    self = self * self_original
         return self
 
     def __eq__(self, arg):
